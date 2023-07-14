@@ -12,3 +12,6 @@ end
 
 
 p moveZerosToEnd(list); # 印出 [false, 1, -1, 2, 1, 3, "a", 0, 0]
+
+# solving steps:
+# 設定兩個陣列一個放非零的、一個放是零的，最後把兩個陣列相加。
