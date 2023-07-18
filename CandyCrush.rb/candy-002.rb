@@ -53,3 +53,20 @@ puts missingChar(chars2); # 印出 P
 
 # solving steps:
 # 用 (chars[0]..chars[-1]) 創建一個範圍且轉為陣列，並跟傳進來的陣列相減，這樣可以把傳進來的從範圍陣列中移除，就會留下沒有的字元，最後回傳字串型別。
+
+# 編號：CANDY-002 --- revision03
+# 程式語言：Ruby
+# 題目：請寫一小段程式，印出連續陣列裡缺少的字元
+
+chars1 = ["a", "b", "c", "d", "f", "g"];
+chars2 = ["O", "Q", "R", "S"];
+
+def missingChar(chars)
+  ((chars.first..chars.last).to_a - chars).first
+end
+
+puts missingChar(chars1); # 印出 e
+puts missingChar(chars2); # 印出 P
+
+# solving steps:
+# 用 (chars.first..chars.last) 創建一個範圍且轉為陣列，並跟傳進來的陣列相減，這樣可以把傳進來的從範圍陣列中移除，就會留下沒有的字元，最後回傳字串型別。
