@@ -6,7 +6,9 @@
 #      "abcdefg" -> ['ab', 'cd', 'ef', 'g_']
 
 def split_string(str)
-  str.split(" ", /.{1,2}/)
+  result = str.scan(/.{1,2}/)
+  result << (result.pop + '_') if result.last&.length == 1
+  result
 end
 
 
@@ -15,5 +17,5 @@ p split_string("abcdefg"); # ["ab", "cd", "ef", "g_"]
 p split_string(""); # []
 
 # solving steps:
-# 以正規表示法找出符合一個或兩個字元的群組，並用 match() 方法找出符合條件的並形成一個新陣列，如果沒有符合則回傳 []；
-# 加以判斷 str 長度若為奇數，則在最後一個字上加上 "_" 回傳至陣列中。
+# 用 scan 與正規表示法將傳進來的字串分開， 如果最後一個元素長度為 1，result.pop 取出最后一个元素，並加上 '_'，
+# 加回 result，同时，使用 &. 避免 [] 的情況。
