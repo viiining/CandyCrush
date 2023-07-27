@@ -11,5 +11,5 @@ puts to_camel_case("book"); # book
 puts to_camel_case("book_store"); # bookStore
 puts to_camel_case("get_good_score"); # getGoodScore
 
-# solving step:
+# solving steps:
 # 使用 gsub 方法與正規表示法找出匹配 '_' 與下一個字元，運用 block 來處理有匹配到的下一個字元做大寫轉換。
