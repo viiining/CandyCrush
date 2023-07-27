@@ -17,5 +17,5 @@ p split_string("abcdefg"); # ["ab", "cd", "ef", "g_"]
 p split_string(""); # []
 
 # solving steps:
-# 用 scan 與正規表示法將傳進來的字串分開， 如果最後一個元素長度為 1，result.pop 取出最后一个元素，並加上 '_'，
-# 加回 result，同时，使用 &. 避免 [] 的情況。
+# 用 scan 與正規表示法將傳進來的字串分開且轉為陣列， 如果最後一個元素長度為 1，result.pop 取出最後一個元素，
+# 並加上 '_'，再放回 result，並使用 &. 避免 [] 的情況。
