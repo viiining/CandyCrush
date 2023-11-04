@@ -47,13 +47,26 @@
 # @param {Integer[]} nums
 # @param {Integer} val
 # @return {Integer}
+# def remove_element(nums, val)
+#   result = 0
+#   nums.each_with_index do |num, i|
+#     if nums[i] != val
+#       nums[result] = num # 將不等於 val 的數字更新在 nums 陣列裡的位置，用來刪去 num = val 的狀況
+#       result += 1
+#     end
+#   end
+#   result
+# end
+
 def remove_element(nums, val)
-  result = 0
-  nums.each_with_index do |num, i|
-    if nums[i] != val
-      nums[result] = num # 將不等於 val 的數字更新在 nums 陣列裡的位置，用來刪去 num = val 的狀況
-      result += 1
-    end
-  end
-  result
+  # 刪除 num == val
+  nums.delete(val)
+  # 回傳 nums 的長度
+  nums.length
 end
+
+nums = [1, 2, 3, 2, 4]
+val = 2
+
+result = remove_element(nums, val)
+puts result # 3
