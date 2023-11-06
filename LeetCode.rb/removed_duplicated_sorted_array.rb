@@ -39,7 +39,21 @@
 # -100 <= nums[i] <= 100
 # nums is sorted in non-decreasing order.
 
-# solution
+# Method 1
+def remove_duplicates(nums)
+  position = 0
+
+  for i in 1..(nums.length - 1)
+    if nums[position] != nums[i]
+      position += 1
+      nums[position] = nums[i]
+    end
+  end
+  position + 1
+end
+
+
+# Method 2
 # @param {Integer[]} nums
 # @return {Integer}
 def remove_duplicates(nums)
