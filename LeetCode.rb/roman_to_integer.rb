@@ -40,7 +40,7 @@
 # s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 # It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
-# solution:
+# solution 1:
 # @param {String} s
 # @return {Integer}
 def roman_to_int(s)
@@ -72,4 +72,31 @@ def roman_to_int(s)
   result
 end
 
-puts roman_to_int("VIII")
+# solution 2:
+def roman_to_int(s)
+  roman_char = {
+    "I" => 1,
+    "V" => 5,
+    "X" => 10,
+    "L" => 50,
+    "C" => 100,
+    "D" => 500,
+    "M" => 1000
+  }
+
+  total_value = 0
+
+  s.each_char.with_index do |char, i|
+    value = roman_char[s[char]]
+    next_value = roman_char[s[i+1]]
+
+    # 判斷 next_value 是否存在
+    if next_value && value < next_value
+      total_value -= value
+    else
+      total_value += value
+    end
+  end
+
+  total_value
+end
